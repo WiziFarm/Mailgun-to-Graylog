@@ -1,0 +1,85 @@
+{
+    "name": "wizifarm/mailgun-to-graylog",
+    "type": "project",
+    "description": "Mailgun to Graylog",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.1.0",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "ext-json": "*",
+        "graylog2/gelf-php": "^1.6",
+        "mailgun/mailgun-php": "^3.2",
+        "sensio/framework-extra-bundle": "^6.0",
+        "sentry/sentry-symfony": "^4.0",
+        "symfony/console": "5.4.*",
+        "symfony/contracts": "^2.3",
+        "symfony/dotenv": "5.4.*",
+        "symfony/event-dispatcher": "5.4.*",
+        "symfony/expression-language": "5.4.*",
+        "symfony/flex": "^2.0",
+        "symfony/framework-bundle": "5.4.*",
+        "symfony/http-client": "5.4.*",
+        "symfony/http-kernel": "5.4.*",
+        "symfony/monolog-bundle": "^3.6",
+        "symfony/yaml": "5.4.*"
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*"
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "require-dev": {
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan": "^1.0.0",
+        "phpstan/phpstan-deprecation-rules": "^1.0.0",
+        "phpstan/phpstan-phpunit": "^1.0.0",
+        "phpstan/phpstan-symfony": "^1.0.0",
+        "phpunit/phpunit": "^9.4",
+        "roave/security-advisories": "dev-master",
+        "symfony/debug-bundle": "5.4.*",
+        "symfony/phpunit-bridge": "5.4.*",
+        "symfony/stopwatch": "5.4.*"
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true,
+            "symfony/flex": true
+        }
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "5.4.*",
+            "id": "01DEBQ4CG3JRKE1J3B2QJPCVGP"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "prefer-stable": true,
+    "scripts": {
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ],
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd"
+        }
+    }
+}

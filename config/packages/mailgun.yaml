@@ -1,0 +1,11 @@
+services:
+    Mailgun\HttpClient\HttpClientConfigurator:
+        calls:
+            - setApiKey: ['%env(MAILGUN_API_KEY)%']
+            - setEndpoint : ['https://api.eu.mailgun.net']
+
+    App\Bridge\Mailgun\ArrayResponseHydrator: ~
+
+    Mailgun\Mailgun:
+        $configurator: '@Mailgun\HttpClient\HttpClientConfigurator'
+        $hydrator: '@App\Bridge\Mailgun\ArrayResponseHydrator'

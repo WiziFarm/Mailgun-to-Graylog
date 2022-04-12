@@ -1,0 +1,3 @@
+framework:
+    php_errors:
+        log: "%framework_php_errors_log_production%"

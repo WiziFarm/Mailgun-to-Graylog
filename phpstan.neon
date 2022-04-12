@@ -1,0 +1,14 @@
+parameters:
+    level: 5
+
+    tmpDir: var/phpstan
+    paths:
+        - src
+        - tests
+
+    reportUnmatchedIgnoredErrors: false
+    inferPrivatePropertyTypeFromConstructor: true
+    checkMissingIterableValueType: false
+
+    symfony:
+        container_xml_path: var/cache/dev/App_KernelDevDebugContainer.xml

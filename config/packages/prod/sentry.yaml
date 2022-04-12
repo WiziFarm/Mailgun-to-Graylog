@@ -1,0 +1,23 @@
+services:
+    Sentry\Integration\IgnoreErrorsIntegration:
+        arguments:
+            $options:
+                ignore_exceptions:
+                    - 'Symfony\Component\HttpKernel\Exception\HttpExceptionInterface'
+                    - 'Symfony\Component\Routing\Exception\ResourceNotFoundException'
+                    - 'Symfony\Component\Security\Core\Exception\AuthenticationException'
+                    - 'Symfony\Component\Security\Core\Exception\AccessDeniedException'
+                    - 'Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException'
+
+sentry:
+    dsn: '%env(SENTRY_DSN)%'
+    messenger:
+        enabled: true
+        capture_soft_fails: false
+    options:
+        environment: '%env(APP_STAGE)%'
+        release: '%env(APP_VERSION)%'
+        integrations:
+            - 'Sentry\Integration\IgnoreErrorsIntegration'
+    tracing:
+        enabled: false
